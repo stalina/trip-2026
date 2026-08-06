@@ -1,1 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pyrénées Espagnoles en Van · 7–22 Août 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--g1:#1a3a2a;--g2:#2d6a4f;--g3:#52b788;--ter:#c45c2a;--ter2:#e07b4a;--teal:#1a9e94;--sand:#f5e6c8;--sand2:#e8d5a8;--bark:#3d2b1f;--cream:#faf6ef;--mist:#f2ede4;--txt:#2c2018;--txt2:#6b5744;--swim:#0077b6;--swim2:#90e0ef;--eclipse:#1a1040;--eclipse2:#7b2ff7;
+}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--txt);line-height:1.6}
 
+/* HERO */
+.hero{background:var(--g1);color:#fff;padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 180'%3E%3Cpolygon fill='%232d6a4f' opacity='.35' points='0,180 0,100 200,50 400,90 600,20 800,65 1000,15 1200,55 1400,25 1400,180'/%3E%3Cpolygon fill='%23155343' opacity='.45' points='0,180 0,130 250,85 500,120 700,65 900,105 1100,55 1400,85 1400,180'/%3E%3C/svg%3E") bottom/cover no-repeat;pointer-events:none}
+.hero-flag{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--g3);margin-bottom:10px;font-weight:700}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:8px}
+.hero h1 em{color:var(--ter2);font-style:italic}
+.hero-sub{font-size:1rem;color:#c8e6da;margin-bottom:22px;font-weight:300}
+.tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:26px}
+.tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;padding:4px 12px;border-radius:20px;font-size:.77rem;letter-spacing:.4px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;position:relative;z-index:1}
+.stat{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);padding:12px 18px;border-radius:12px;text-align:center;min-width:90px}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--ter2)}
+.stat-l{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:#aad4c8;margin-top:2px}
+
+/* ALERT ECLIPSE */
+.eclipse-banner{background:linear-gradient(135deg,var(--eclipse),#3b1080);color:#fff;padding:20px 24px;text-align:center;border-bottom:3px solid var(--eclipse2)}
+.eclipse-banner h2{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:6px;color:#e8d4ff}
+.eclipse-banner p{font-size:.9rem;color:#c8b8f0;line-height:1.5}
+.eclipse-banner strong{color:#fff}
+
+/* ROUTE VISUAL */
+.route-scroll{background:var(--g1);padding:18px 16px 28px;overflow-x:auto}
+.route-line{display:flex;align-items:flex-start;gap:0;min-width:900px;margin:0 auto;max-width:1000px}
+.stop{text-align:center;flex:1;position:relative}
+.stop::after{content:'';position:absolute;top:12px;left:50%;width:100%;height:2px;background:linear-gradient(90deg,var(--g3),var(--teal))}
+.stop:last-child::after{display:none}
+.dot{width:24px;height:24px;border-radius:50%;margin:0 auto 6px;border:2px solid var(--g3);background:var(--g1);position:relative;z-index:1;display:flex;align-items:center;justify-content:center;font-size:.6rem}
+.dot.t{background:linear-gradient(135deg,var(--ter),#9a3d18);border-color:var(--ter2)}
+.dot.f{background:linear-gradient(135deg,var(--teal),#0d7a71);border-color:#7ff0e6}
+.dot.e{background:linear-gradient(135deg,var(--eclipse2),var(--eclipse));border-color:#c8a8ff}
+.dot.a{background:linear-gradient(135deg,#8b6bb1,#5b3d8a);border-color:#c8a8ff}
+.stop-label{font-size:.67rem;color:#c8e6da;line-height:1.3;padding:0 2px}
+.stop-label strong{display:block;color:#fff;font-size:.72rem}
+
+/* SECTION */
+.section{max-width:880px;margin:0 auto;padding:36px 18px}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--g1);margin-bottom:5px;border-left:4px solid var(--ter);padding-left:14px}
+.sec-sub{color:var(--txt2);margin-bottom:26px;padding-left:18px;font-size:.9rem}
+
+/* DAY CARDS */
+.timeline{display:flex;flex-direction:column;gap:10px}
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06);overflow:hidden;border:1px solid var(--sand2);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.card-head{display:flex;align-items:center;gap:13px;padding:13px 16px;cursor:pointer;user-select:none;position:relative}
+.card-head::after{content:'▸';position:absolute;right:16px;color:var(--txt2);transition:transform .25s;font-size:.85rem}
+.card.open .card-head::after{transform:rotate(90deg)}
+.badge{min-width:50px;height:50px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.badge.transit{background:linear-gradient(135deg,#4a7c5e,#2d6a4f)}
+.badge.rest{background:linear-gradient(135deg,#8b7355,#6b5744)}
+.badge.swim{background:linear-gradient(135deg,#0077b6,#023e8a)}
+.badge.explore{background:linear-gradient(135deg,#1a9e94,#0d7a71)}
+.badge.star{background:linear-gradient(135deg,var(--ter),#9a3d18)}
+.badge.eclipse{background:linear-gradient(135deg,var(--eclipse2),var(--eclipse))}
+.badge .num{font-weight:700;font-size:1rem;color:#fff}
+.badge .date{font-size:.57rem;color:rgba(255,255,255,.8);letter-spacing:.5px}
+.badge .emo{font-size:1.2rem}
+.head-info{flex:1}
+.head-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--bark);line-height:1.2}
+.head-sub{font-size:.78rem;color:var(--txt2);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.chip{font-size:.65rem;padding:2px 7px;border-radius:9px;font-weight:700;letter-spacing:.3px;text-transform:uppercase}
+.chip.drive{background:#e8f5e9;color:#2e7d32}
+.chip.sw{background:#e0f7fa;color:#006064;font-weight:900}
+.chip.nat{background:#f1f8e9;color:#33691e}
+.chip.vil{background:#fff3e0;color:#e65100}
+.chip.biv{background:#f3e5f5;color:#6a1b9a}
+.chip.warn{background:#ffebee;color:#c62828}
+.chip.ecl{background:linear-gradient(90deg,#1a1040,#3b1080);color:#e8d4ff}
+.chip.free{background:#e8f5e9;color:#1b5e20}
+.chip.hot{background:#ffccbc;color:#bf360c;font-weight:900}
+
+.body{display:none;padding:0 16px 16px;border-top:1px solid var(--mist)}
+.card.open .body{display:block}
+
+/* SPOTS */
+.spots{display:flex;flex-direction:column;gap:9px;margin-top:11px}
+.spot{background:var(--mist);border-radius:10px;padding:11px 13px;border-left:3px solid var(--g3)}
+.spot.star{border-left-color:var(--ter)}
+.spot.sw{border-left-color:var(--swim)}
+.spot.ecl{border-left-color:var(--eclipse2);background:linear-gradient(135deg,#f0ebff,#e8e0ff)}
+.spot-hd{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.spot-name{font-weight:700;font-size:.93rem;color:var(--bark)}
+.spot-stars{color:var(--ter);font-size:.82rem}
+.spot-desc{font-size:.83rem;color:var(--txt2);line-height:1.5}
+.spot-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.meta{font-size:.73rem;color:var(--txt2)}
+.meta strong{color:var(--txt)}
+
+.biv-box{background:linear-gradient(135deg,#f3e8ff,#ede0ff);border:1px dashed #9c6fce;border-radius:10px;padding:10px 13px;margin-top:9px}
+.biv-title{font-weight:700;font-size:.8rem;color:#6a1b9a;margin-bottom:3px}
+.biv-box p{font-size:.8rem;color:#4a1870;line-height:1.5}
+.drive-box{display:flex;align-items:center;gap:9px;background:linear-gradient(135deg,#e8f5e9,#d4edda);border-radius:10px;padding:9px 13px;margin-bottom:9px}
+.drive-ico{font-size:1.3rem}
+.drive-info{font-size:.8rem;color:var(--txt2);line-height:1.4}
+.drive-info strong{display:block;color:var(--g1);font-size:.87rem}
+.warn-box{background:#fff8e1;border:1px solid #f9a825;border-radius:8px;padding:7px 11px;margin-top:8px;font-size:.8rem;color:#5d4037}
+.swim-callout{background:linear-gradient(135deg,#e0f7fa,#b2ebf2);border-left:3px solid var(--swim);border-radius:10px;padding:10px 13px;margin-top:9px}
+.swim-callout-title{font-weight:700;font-size:.82rem;color:#006064;margin-bottom:3px}
+.swim-callout p{font-size:.82rem;color:#004d50;line-height:1.5}
+.eclipse-box{background:linear-gradient(135deg,#1a1040,#2d1a6e);border-radius:12px;padding:16px;margin-top:10px;color:#fff}
+.eclipse-box h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#e8d4ff;margin-bottom:8px}
+.eclipse-box p{font-size:.83rem;color:#c8b8f0;line-height:1.6}
+.eclipse-box .eclipse-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.eclipse-box .ecl-item{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;text-align:center}
+.eclipse-box .ecl-val{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#e8d4ff}
+.eclipse-box .ecl-label{font-size:.68rem;color:#a898d0;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+
+/* BUDGET */
+.budget-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-top:18px}
+.budget-item{background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05);border-top:3px solid var(--g3)}
+.budget-item.or{border-top-color:var(--ter)}
+.budget-item.bl{border-top-color:var(--teal)}
+.budget-item.pu{border-top-color:#8b6bb1}
+.budget-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--txt2);margin-bottom:3px}
+.budget-amt{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--bark)}
+.budget-note{font-size:.76rem;color:var(--txt2);margin-top:3px;line-height:1.4}
+.budget-total{background:var(--g1);color:#fff;border-radius:12px;padding:18px 22px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.bt-label{font-size:.85rem;color:#a8d5c2;letter-spacing:1px;text-transform:uppercase}
+.bt-amt{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--sand)}
+.bt-note{font-size:.78rem;color:#7abba0;margin-top:2px}
+
+/* TIPS */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:18px}
+.tip{background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.tip-ico{font-size:1.7rem;margin-bottom:7px}
+.tip-title{font-weight:700;font-size:.87rem;color:var(--bark);margin-bottom:5px}
+.tip-text{font-size:.8rem;color:var(--txt2);line-height:1.5}
+
+/* SWIM INDEX */
+.swim-index{background:linear-gradient(135deg,#023e8a,#0077b6);color:#fff;border-radius:14px;padding:20px;margin-top:18px}
+.swim-index h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:12px;color:var(--swim2)}
+.swim-list{display:flex;flex-direction:column;gap:7px}
+.swim-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border-radius:8px;padding:8px 11px}
+.swim-item .si-date{font-size:.7rem;color:#90e0ef;min-width:55px;font-weight:700}
+.swim-item .si-name{font-size:.83rem;font-weight:700;flex:1}
+.swim-item .si-temp{font-size:.75rem;color:#ade8f4}
+.swim-item .si-stars{color:#ffd60a;font-size:.78rem}
+
+footer{background:var(--g1);color:#7abba0;text-align:center;padding:22px 18px;font-size:.78rem;letter-spacing:.4px}
+footer strong{color:var(--sand)}
+
+@media(max-width:480px){.hero h1{font-size:1.6rem}.route-scroll{padding:12px 8px 22px}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-flag">🚐 Van Familia 4 pers · Navarre · Pays Basque · Aragon · Catalogne · Andorre</div>
+  <h1>Pyrénées <em>Espagnoles</em> + Éclipse<br>7 – 22 Août 2026</h1>
+  <div class="hero-sub">De Rambouillet aux Pyrénées · Via Bordeaux · Retour par Andorre</div>
+  <div class="tags">
+    <span class="tag">🌊 9 spots baignade</span>
+    <span class="tag">🌑 Éclipse totale 12/08</span>
+    <span class="tag">🏔️ Ordesa UNESCO</span>
+    <span class="tag">🌲 Bivouac libre</span>
+    <span class="tag">🏘️ Villages classés</span>
+    <span class="tag">🛣️ Via Andorre</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n">16</div><div class="stat-l">Jours</div></div>
+    <div class="stat"><div class="stat-n">12</div><div class="stat-l">Jours Espagne</div></div>
+    <div class="stat"><div class="stat-n">9</div><div class="stat-l">Baignades ★</div></div>
+    <div class="stat"><div class="stat-n">1m27s</div><div class="stat-l">Totalité éclipse</div></div>
+    <div class="stat"><div class="stat-n">~1020€</div><div class="stat-l">Budget famille</div></div>
+  </div>
+</div>
+
+<!-- ECLIPSE BANNER -->
+<div class="eclipse-banner">
+  <h2>🌑 Éclipse Totale du 12 août 2026 · 20h29 heure locale</h2>
+  <p>Le couloir de totalité traverse le nord de l'Espagne. Votre camp de base : <strong>les Bardenas Reales</strong> (désert de Navarre) — <strong>1h30 seulement de Biarritz</strong>, horizon 360° parfait pour la coroné solaire. Bonus : nuit des <strong>Perséides</strong> juste après l'éclipse !</p>
+</div>
+
+<!-- ROUTE VISUAL -->
+<div class="route-scroll">
+  <div class="route-line">
+    <div class="stop"><div class="dot">🏠</div><div class="stop-label"><strong>Lille</strong>7/08 17h</div></div>
+    <div class="stop"><div class="dot f">🏰</div><div class="stop-label"><strong>Rambouillet</strong>nuit 7/08</div></div>
+    <div class="stop"><div class="dot f">👨‍👩‍👧</div><div class="stop-label"><strong>Bordeaux</strong>8/08 amis</div></div>
+    <div class="stop"><div class="dot t">🏄</div><div class="stop-label"><strong>San Seb.</strong>9–10/08</div></div>
+    <div class="stop"><div class="dot t">🍷</div><div class="stop-label"><strong>Laguardia</strong>11/08</div></div>
+    <div class="stop"><div class="dot e">🌑</div><div class="stop-label"><strong>ÉCLIPSE</strong>12/08</div></div>
+    <div class="stop"><div class="dot t">🦅</div><div class="stop-label"><strong>Lumbier</strong>13/08</div></div>
+    <div class="stop"><div class="dot t">🌲</div><div class="stop-label"><strong>Ansó/Oza</strong>14/08</div></div>
+    <div class="stop"><div class="dot t">🗿</div><div class="stop-label"><strong>Riglos</strong>15/08</div></div>
+    <div class="stop"><div class="dot t">⭐</div><div class="stop-label"><strong>Ordesa</strong>16/08</div></div>
+    <div class="stop"><div class="dot t">🏊</div><div class="stop-label"><strong>Ainsa</strong>17/08</div></div>
+    <div class="stop"><div class="dot t">🏞️</div><div class="stop-label"><strong>Añisclo</strong>18/08</div></div>
+    <div class="stop"><div class="dot t">🏔️</div><div class="stop-label"><strong>Benasque</strong>19/08</div></div>
+    <div class="stop"><div class="dot t">🏰</div><div class="stop-label"><strong>Alquézar</strong>20/08</div></div>
+    <div class="stop"><div class="dot a">🏔️</div><div class="stop-label"><strong>Andorre</strong>21/08</div></div>
+    <div class="stop"><div class="dot f">🎉</div><div class="stop-label"><strong>Rambouillet</strong>BBQ 21/08</div></div>
+    <div class="stop"><div class="dot">🏠</div><div class="stop-label"><strong>Lille</strong>22/08</div></div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<div class="section">
+  <div class="sec-title">📅 Itinéraire Complet</div>
+  <div class="sec-sub">Cliquez sur chaque jour · 🌊 = baignade recommandée · ☀️ = chaleur prévue → partez tôt !</div>
+  <div class="timeline">
+
+<!-- J1 -->
+<div class="card open">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge transit"><span class="emo">🚐</span><span class="date">VEN 7/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Lille → Rambouillet · Départ !</div>
+      <div class="head-sub">Départ 17h · Nuit au Château</div>
+      <div class="chips"><span class="chip drive">~1h30 · 150 km</span><span class="chip biv">Bivouac Rambouillet</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🛣️</div><div class="drive-info"><strong>A1 → Paris (périph ou A86) → A10 → Rambouillet</strong>Départ 17h après le travail. Arrivée ~18h30-19h. Bivouac en forêt de Rambouillet ou parking du château (gratuit la nuit). Préparez les sacs pour le van le soir même.</div></div>
+    <div class="spots">
+      <div class="spot"><div class="spot-hd"><div class="spot-name">💡 Forêt de Rambouillet</div></div><div class="spot-desc">Nombreux spots Park4Night en lisière de forêt à 2-3 km du château. Calme total, idéal pour décompresser avant le grand départ. Parking du château lui-même accessible et gratuit la nuit.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- J2 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge rest"><span class="emo">👨‍👩‍👧</span><span class="date">SAM 8/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Rambouillet → Bordeaux · Chez des amis</div>
+      <div class="head-sub">Départ tranquille · Soirée girondine</div>
+      <div class="chips"><span class="chip drive">~580 km · 5h30</span><span class="chip rest">Soirée amis</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🛣️</div><div class="drive-info"><strong>A10 → Tours → Poitiers → Bordeaux (Langon)</strong>Départ matinal tranquille. Pause déjeuner pique-nique en bord de Loire (~Tours, sortie autoroute). Arrivée à Bordeaux/Langon en début d'après-midi. Soirée avec les amis, ravitaillement, préparation vivres pour l'Espagne.</div></div>
+    <div class="warn-box">⚠️ <strong>Péages</strong> : environ 35-40€ Rambouillet → Bordeaux. Faites le plein de courses dans un supermarché bordelais — les prix espagnols (Mercadona, DIA) sont encore meilleurs mais partez avec des provisions de base.</div>
+  </div>
+</div>
+
+<!-- J3 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge transit"><span class="emo">🇪🇸</span><span class="date">DIM 9/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Bordeaux → San Sebastián · Entrée en Espagne</div>
+      <div class="head-sub">Départ fin d'après-midi · Côte basque espagnole</div>
+      <div class="chips"><span class="chip drive">~165 km · 2h</span><span class="chip sw">Plage Zarautz</span><span class="chip biv">Bivouac côte</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Bordeaux → A63 (Bayonne) → Irun (frontière) → N-1 → San Sebastián → Zarautz</strong>Départ vers 17h. Arrivée à San Sebastián vers 19h. Longez la côte basque espagnole. Stop possible à Zarautz (longue plage de surf, eau agréable en soirée).</div></div>
+    <div class="swim-callout"><div class="swim-callout-title">🌊 Baignade · Plage de Zarautz</div><p>Grande plage de sable fin, eau Atlantique ~20°C en août. Parfaite pour se dégourdir les jambes après la route. Les surfeurs y sont nombreux, belle ambiance.</p></div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Côte basque près de Zarautz ou Zumaia</div><p>Spots Park4Night en hauteur avec vue mer côté Zarautz/Zumaia. Certains avec vue sur les célèbres falaises de flysch. Coord ~43.28°N, -2.27°W.</p></div>
+  </div>
+</div>
+
+<!-- J4 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge swim"><span class="emo">🏖️</span><span class="date">LUN 10/08</span></div>
+    <div class="head-info">
+      <div class="head-title">San Sebastián 🌊 · La Concha + Vieille Ville</div>
+      <div class="head-sub">L'une des plus belles plages urbaines d'Europe · Pintxos</div>
+      <div class="chips"><span class="chip sw hot">Baignade ★★★★★</span><span class="chip vil">Vieille ville</span><span class="chip free">Gratuit</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="spots">
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">Playa de La Concha</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">L'une des plus belles plages urbaines d'Europe, au cœur de San Sebastián. Sable blanc, eau vert-bleu, baie parfaitement protégée. Idéale pour les enfants (peu de vagues dans la baie). Promenez sur le Paseo de La Concha longeant la plage. Arrivez tôt (8h-10h) pour une place facile.</div>
+        <div class="spot-meta"><span class="meta">🌡️ ~21-22°C</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🅿️ Parking hors saison ~6€/jour</span></div>
+      </div>
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Parte Vieja — Vieille Ville + Pintxos</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Quartier historique de San Sebastián, l'un des plus animés du Pays Basque. Ruelles pavées couvertes de bars à pintxos (tapas basques). Marché couvert San Martín pour les courses. Cathédrale del Buen Pastor, port de pêche. Budget pintxos : ~12-15€ pour une famille de 4 si l'on choisit bien.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 2-3h</span><span class="meta">💶 Pintxos ~2-3€ pièce</span></div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Mont Urgull ou Igueldo</div><p>Spots Park4Night en hauteur sur les collines dominant San Sebastián. Vue panoramique sur la baie la nuit. Ou plage de Ondarreta/Gros côté est, plus calme et moins fréquenté par les vans.</p></div>
+  </div>
+</div>
+
+<!-- J5 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge explore"><span class="emo">🍷</span><span class="date">MAR 11/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Vitoria + Embalse de Ullibarri 🌊 → Laguardia</div>
+      <div class="head-sub">Vieille ville médiévale gratuite · Baignade lac · Village viticole</div>
+      <div class="chips"><span class="chip drive">~130 km · 1h30</span><span class="chip sw">Lac Ullibarri</span><span class="chip vil">Laguardia</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>San Sebastián → A-1 → Vitoria-Gasteiz → N-102 → Embalse de Ullibarri → A-2124 → Laguardia</strong>Route intérieure magnifique à travers les collines basques.</div></div>
+    <div class="spots">
+      <div class="spot">
+        <div class="spot-hd"><div class="spot-name">Vitoria-Gasteiz · Casco Medieval</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Le centre médiéval de Vitoria est entouré d'une ceinture d'amandiers verts (le "casco medieval almendrado"). Cathédrale Santa María, places animées, architecture basque. Capitale du Pays Basque, surprenante et authentique. Arrêt d'1h30, très agréable.</div>
+        <div class="spot-meta"><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🅿️ Gratuit en périphérie</span></div>
+      </div>
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Embalse de Ullibarri-Gamboa</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Grand lac de barrage en Álava avec de belles plages de galets et zones de baignade tranquilles. Eau douce propre, peu fréquenté, nature préservée. Superbe pour une baignade en famille après Vitoria. Les rives boisées offrent de l'ombre.</div>
+        <div class="spot-meta"><span class="meta">🌡️ ~22°C</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🅿️ Gratuit bord du lac</span></div>
+      </div>
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Laguardia · Village médiéval viticole</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Perché sur un promontoire dominant le vignoble de Rioja Alavesa, Laguardia est l'un des plus beaux villages d'Espagne. Remparts intacts, caves souterraines médiévales sous les maisons (certaines ouvertes aux visites ~4€), panorama sur les montagnes et vignes à 360°. <strong>Position idéale pour l'éclipse du lendemain</strong> : horizon totalement dégagé à l'ouest !</div>
+        <div class="spot-meta"><span class="meta">⏱️ 1h-1h30</span><span class="meta">💶 Village gratuit</span></div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Vignes de Rioja Alavesa autour de Laguardia</div><p>Spots Park4Night dans les vignes, avec vue sur les Sierras et horizon parfaitement dégagé vers l'ouest. Parfait pour préparer l'observation de l'éclipse du lendemain. Coord ~42.55°N, -2.58°W.</p></div>
+  </div>
+</div>
+
+<!-- J6 ECLIPSE -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge eclipse"><span class="emo">🌑</span><span class="date">MER 12/08</span></div>
+    <div class="head-info">
+      <div class="head-title">🌑 ÉCLIPSE TOTALE + Bardenas Reales · Le Jour Phare</div>
+      <div class="head-sub">Désert lunaire de Navarre + Amis de Biarritz + Corona solaire à 20h29 + Perséides !</div>
+      <div class="chips"><span class="chip ecl">Totalité 20h29 · 1min27s</span><span class="chip drive">~90 km · 1h15</span><span class="chip warn">Lunettes ISO 12312-2 obligatoires !</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Laguardia → A-124 → Logroño → AP-15 → Tafalla → Bardenas (Arguedas)</strong>~1h15. Entrez dans le désert dès l'ouverture (8h). Boucle voiture de 32 km sur pistes balisées, vitesse max 40 km/h. Centre info à 4 km de l'entrée pour la carte.</div></div>
+    <div class="spots">
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Bardenas Reales — Désert de Navarre</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">Le 2ème plus grand désert d'Europe, classé UNESCO. Paysages lunaires extraordinaires : buttes, ravins, formations rocheuses érodées dont la célèbre Castildetierra (pyramide de terre). Game of Thrones y a été tourné ! Circulez par la boucle principale (~32 km en voiture, 1h30), arrêts aux miradors. Chaleur intense en août (38-42°C) — partez à l'aube et siestez à l'ombre en milieu de journée.</div>
+        <div class="spot-meta"><span class="meta">⏱️ Journée complète</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">⚠️ Ouvert 8h – 1h avant coucher du soleil</span><span class="meta">⚠️ Bivouac INTERDIT à l'intérieur du parc</span></div>
+      </div>
+    </div>
+    <div class="eclipse-box">
+      <h3>🌑 Éclipse Totale · 12 août 2026 · 20h29 CEST</h3>
+      <p>Le couloir de totalité passe sur les Bardenas Reales. Le soleil sera <strong>très bas sur l'horizon</strong> (~12° seulement) — la plaine désertique offre la vue dégagée parfaite vers l'ouest ! Vos amis de Biarritz arrivent par l'A-15 (~1h15-1h30 de route). Rendez-vous à l'entrée d'Arguedas vers 19h pour s'installer ensemble.</p>
+      <div class="eclipse-grid">
+        <div class="ecl-item"><div class="ecl-val">20h29</div><div class="ecl-label">Début totalité</div></div>
+        <div class="ecl-item"><div class="ecl-val">1min27s</div><div class="ecl-label">Durée corona</div></div>
+        <div class="ecl-item"><div class="ecl-val">1h15</div><div class="ecl-label">Depuis Biarritz</div></div>
+        <div class="ecl-item"><div class="ecl-val">~12°</div><div class="ecl-label">Hauteur soleil</div></div>
+      </div>
+      <p style="margin-top:10px;font-size:.8rem;color:#a898d0">⚠️ <strong>Lunettes ISO 12312-2</strong> obligatoires pendant toute la phase partielle (avant et après les ~1min27s de totalité). Commandez-les AVANT le départ ! · ✨ Bonus : c'est aussi le pic des <strong>Perséides</strong> cette nuit-là !</p>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Aire gratuite d'Arguedas (parking maisons troglodytes)</div><p>Aire gratuite et très bien placée pour les camping-cars, à l'entrée du désert. Ou spots Park4Night aux abords d'Arguedas. Nuit d'observation des Perséides garantie dans ce ciel de désert sans pollution lumineuse !</p></div>
+  </div>
+</div>
+
+<!-- J7 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge explore"><span class="emo">🦅</span><span class="date">JEU 13/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Foz de Lumbier 🌊 + Foz de Arbayún → Aragon</div>
+      <div class="head-sub">Gorges + vautours fauves + baignade · Entrée dans l'Aragon</div>
+      <div class="chips"><span class="chip drive">~80 km · 1h</span><span class="chip sw">Baignade Río Irati</span><span class="chip nat">Vautours ★★★★★</span><span class="chip free">Gratuit</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Arguedas → AP-15 → Tafalla → NA-150 → Lumbier</strong>~1h de route. Arrivez à la Foz de Lumbier dès 9h pour éviter la chaleur de la journée.</div></div>
+    <div class="spots">
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Foz de Lumbier — Gorge + Vautours</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">Gorge taillée par le Río Irati dans la roche calcaire. Ancienne voie ferrée transformée en chemin (3,5 km A/R, facile). Des centaines de vautours fauves nichent dans les falaises. Tunnel spectaculaire à traverser (lampes !). Vue vertigineuse depuis les bords. Baignade possible dans le Río Irati juste après la sortie de la gorge — eaux fraîches et claires.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 1h30-2h</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">👨‍👩‍👧 Accessible dès 4 ans</span></div>
+      </div>
+      <div class="spot">
+        <div class="spot-hd"><div class="spot-name">Foz de Arbayún — Mirador Vertigineux</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Canyon encore plus profond et sauvage, accessible uniquement depuis les belvédères en surplomb (route NA-178). Vue plongeante de 300m sur le fond du canyon et le Río Salazar. Réserve naturelle. Rapaces en vol en permanence.</div>
+        <div class="spot-meta"><span class="meta">📍 ~15 km de Lumbier, route NA-178 vers Iso</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">⏱️ 45min-1h</span></div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Bord du Río Salazar ou vers Ansó</div><p>Spots Park4Night entre Lumbier et la vallée de Roncal/Ansó. Bords de rivière dans un cadre montagnard navarrain magnifique. Commencez à rouler vers l'Aragon en fin d'après-midi.</p></div>
+  </div>
+</div>
+
+<!-- J8 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge swim"><span class="emo">🌲</span><span class="date">VEN 14/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Ansó + Selva de Oza 🌊 · Forêt primaire magique</div>
+      <div class="head-sub">Village classé + Forêt primaire + Baignade Río Aragón Subordán</div>
+      <div class="chips"><span class="chip sw hot">Baignade rivière ★★★★★</span><span class="chip vil">Village classé</span><span class="chip drive">~90 km · 1h30</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Lumbier → NA-178 → A-176 → Ansó → piste vers Selva de Oza (Valle de Hecho)</strong>Route de montagne magnifique. La piste vers la Selva de Oza est étroite mais praticable pour le Master (prudence).</div></div>
+    <div class="spots">
+      <div class="spot">
+        <div class="spot-hd"><div class="spot-name">Ansó · Plus beau village d'Espagne</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Village médiéval classé, architecture en pierre sombre, ruelles labyrinthiques, fontaines, folklore local encore vivant. Perché au fond d'une vallée encaissée. Marché authentique le matin. La Plaza Mayor et l'église del Divino Salvador valent le détour.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 1h</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🅿️ ~3€ entrée village</span></div>
+      </div>
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Selva de Oza — Forêt primaire + Río Aragón Subordán</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">La forêt primaire de hêtres, pins et sapins la plus spectaculaire des Pyrénées espagnoles — une vraie ambiance Seigneur des Anneaux. Le Río Aragón Subordán y est d'une limpidité cristalline, avec de belles vasques naturelles pour se baigner (eau fraîche ~16°C). Randonnées faciles au départ du parking. En été, la fraîcheur de la forêt est le parfait antidote à la chaleur !</div>
+        <div class="spot-meta"><span class="meta">⏱️ Demi-journée</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🌡️ Eau ~16°C, air ~27°C</span><span class="meta">👨‍👩‍👧 Idéal famille</span></div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac ★ · Au fond de la Selva de Oza</div><p>L'un des plus beaux bivouacs du voyage : en bord de rivière dans la forêt primaire. Coord approx : 42.70°N, -0.75°W. Nombreux spots Park4Night référencés. Nuit fraîche garantie !</p></div>
+  </div>
+</div>
+
+<!-- J9 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge explore"><span class="emo">🗿</span><span class="date">SAM 15/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Mallos de Riglos 🌊 · Formations à 300m</div>
+      <div class="head-sub">Falaises conglomérat rouges uniques en Europe · Río Gállego</div>
+      <div class="chips"><span class="chip nat">Roches monumentales ★★★★★</span><span class="chip sw">Río Gállego</span><span class="chip drive">~65 km · 1h</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Oza → A-176 → Jaca → A-132 → Riglos</strong>Option arrêt Jaca (citadelle médiévale, marché, ravitaillement Mercadona). Route superbe dans les avant-Pyrénées.</div></div>
+    <div class="spots">
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Mallos de Riglos · Sentier Camino del Cielo</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">Formations de conglomérat rouge de 300m de hauteur absolument stupéfiantes, uniques en Europe. Le sentier "Camino del Cielo" (4 km, 2h, accessible) contourne les falaises avec des vues vertigineuses. Le Mirador de los Buitres permet d'observer les vautours planant à hauteur d'yeux. Coucher de soleil spectaculaire sur les Mallos.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 2-3h</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">👨‍👩‍👧 Randonnée accessible dès 7 ans</span></div>
+      </div>
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Baignade Río Gállego</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">En contrebas des Mallos, le Río Gállego offre de belles zones de baignade sur galets avec vue sur les falaises. Eau fraîche, parfait en plein après-midi de canicule aragonaise. Les rochers plats font d'excellentes terrasses de bronzage.</div>
+        <div class="spot-meta"><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🌡️ Eau ~18°C</span></div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Bord du Gállego, à l'ombre des Mallos</div><p>Coucher de soleil face aux falaises rouges depuis le van. Spots Park4Night au bord de la rivière. Préparez les sacs pour le réveil aux aurores le lendemain (Ordesa !).</p></div>
+  </div>
+</div>
+
+<!-- J10 ORDESA -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge star"><span class="emo">⭐</span><span class="date">DIM 16/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Parc National d'Ordesa y Monte Perdido ⭐</div>
+      <div class="head-sub">Le clou du voyage · UNESCO · Réveil 5h30 !</div>
+      <div class="chips"><span class="chip nat">UNESCO ★★★★★</span><span class="chip warn">Réveil 5h30 !</span><span class="chip drive">~75 km · 1h10</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="warn-box">⚠️ <strong>Réveil IMPÉRATIF à 5h30</strong>. La navette depuis Torla est obligatoire en été (voitures interdites dans la vallée). <strong>6€ A/R/adulte, gratuit -10 ans</strong>. Billets sur place uniquement (non réservables en ligne), guichet ouvert dès 5h45. Parking de Torla : GRATUIT toute l'année.</div>
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Riglos → A-132 → Sabiñánigo → N-260 → Torla</strong>Arrivez au parking de Torla avant 7h. Première navette à 6h. Plus tôt = plus calme dans la vallée.</div></div>
+    <div class="spots">
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Cola de Caballo (recommandée)</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">La randonnée phare : 17 km A/R, 400m dénivelé, 5-6h. Suit le canyon du Río Arazas, traverse les marches naturelles des Gradas de Soaso, atteint la cascade Cola de Caballo (70m). Parois calcaires à 1000m. Accessible dès 7-8 ans habitués à la marche. Emportez des sandwichs et 2L d'eau/pers.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 5-6h</span><span class="meta">💶 Navette 6€ A/R</span><span class="meta">🥾 Chaussures fermées obligatoires</span></div>
+      </div>
+      <div class="spot">
+        <div class="spot-hd"><div class="spot-name">Alternative courte : Cascades de l'Estrecho</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">8 km A/R, 2-3h, facile. Mêmes décors de canyon majesteux, cascades, parois verticales. Parfait si les enfants sont jeunes. Baignade dans certaines vasques possibles (eau glacée !)</div>
+      </div>
+    </div>
+    <div class="warn-box">⚠️ <strong>BIVOUAC STRICTEMENT INTERDIT</strong> dans le Parc National (amendes très élevées). Dormez au parking gratuit de Torla ou remontez vers la Vallée de Bujaruelo (hors parc).</div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Parking Torla (gratuit) ou Vallée de Bujaruelo</div><p>Parking gratuit de Torla utilisé par de nombreux vans. Ou 8 km au nord : Vallée de Bujaruelo (hors parc, magnifique).</p></div>
+  </div>
+</div>
+
+<!-- J11 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge swim"><span class="emo">💙</span><span class="date">LUN 17/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Bujaruelo 🌊 + Ainsa · Eaux turquoise + Joyau médiéval</div>
+      <div class="head-sub">Río Ara d'une couleur irréelle · Village classé + baignade confluence</div>
+      <div class="chips"><span class="chip sw hot">Baignade Río Ara ★★★★★</span><span class="chip vil">Ainsa classé</span><span class="chip drive">~40 km · 45min</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="spots">
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Vallée de Bujaruelo — Río Ara Turquoise</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">À 8 km de Torla, une vallée quasi-sauvage. Le Río Ara a une couleur turquoise irréelle — l'une des plus belles eaux des Pyrénées. La chapelle romane Sant Nicolás de Bujaruelo (XIe s.) ajoute au charme. Vasques naturelles, rochers plats pour bronzer, eau fraîche. Peu de monde le matin tôt. <strong>LE spot baignade du voyage selon beaucoup de vanlifers.</strong></div>
+        <div class="spot-meta"><span class="meta">⏱️ 2-3h</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🌡️ Eau ~14-16°C (montagne !)</span></div>
+      </div>
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Ainsa — Village Médiéval Classé</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">L'un des plus beaux villages d'Espagne (classé). Perché sur un éperon, château XIe, place Mayor en arcades de pierre, remparts avec vue panoramique sur la confluence Cinca/Ara. Flânez au coucher du soleil. Marché le dimanche matin.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 1h30</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🅿️ ~4€</span></div>
+      </div>
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Playa de Ainsa — Confluence Cinca/Ara</div></div>
+        <div class="spot-desc">2 km sous Ainsa, belle plage de galets sur le Río Cinca, eau fraîche, peu fréquentée. Parfaite pour une baignade de fin de journée.</div>
+        <div class="spot-meta"><span class="meta">💶 <strong>Gratuit</strong></span></div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Bord du Río Ara entre Ainsa et Boltaña</div><p>Zone très riche en spots Park4Night : plages de galets en bord de rivière, accès en piste depuis la N-260. Coord ~42.37°N, 0.09°E.</p></div>
+  </div>
+</div>
+
+<!-- J12 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge explore"><span class="emo">🏞️</span><span class="date">MAR 18/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Cañón de Añisclo + Congosto de Ventamillo 🌊</div>
+      <div class="head-sub">Gorges profondes UNESCO · On roule dans le canyon ! · Baignade Ésera</div>
+      <div class="chips"><span class="chip nat">UNESCO</span><span class="chip sw">Vasques Añisclo</span><span class="chip drive">~60 km · 1h</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="spots">
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Cañón de Añisclo — Alternative méconnue à Ordesa</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">Même parc national qu'Ordesa (UNESCO), mais bien moins fréquenté. Gorges parmi les plus profondes d'Europe. Randonnée "Foz de Añisclo" depuis Puyarruego (8-12 km, facile à intermédiaire). Vasques dans le río pour se rafraîchir. Vautours et isards. Végétation luxuriante contrastant avec les falaises à pic.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 3-4h</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">⚠️ Route sens unique montée de 9h à 14h</span></div>
+      </div>
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">🚐 Congosto de Ventamillo — On roule dans le canyon !</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">Expérience unique et inoubliable : la route A-139 passe physiquement à l'intérieur d'un canyon taillé dans la roche par le Río Ésera. Parois verticales à quelques mètres du van. Arrêts photos sur les espaces élargis. Court (3 km) mais saisissant. Les enfants en seront bouche bée !</div>
+        <div class="spot-meta"><span class="meta">📍 Route A-139, Seira</span><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">⏱️ 30min arrêts inclus</span></div>
+      </div>
+    </div>
+    <div class="swim-callout"><div class="swim-callout-title">🌊 Baignade · Río Ésera entre Ainsa et Benasque</div><p>La rivière Ésera offre de belles zones de baignade sur galets tout au long de la vallée. Cherchez les élargissements calmes depuis la A-139. Eau limpide de montagne, fraîche même en pleine canicule aragonaise.</p></div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Bord de l'Ésera vers Benasque</div><p>Nombreux spots Park4Night le long du Río Ésera. Arrivez à Benasque en soirée pour repérer le village.</p></div>
+  </div>
+</div>
+
+<!-- J13 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge swim"><span class="emo">🏔️</span><span class="date">MER 19/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Benasque 🌊 · Haute montagne + Sources thermales</div>
+      <div class="head-sub">Baños termaux naturels + Río Ésera + Lac turquoise · Pied du Pic d'Aneto</div>
+      <div class="chips"><span class="chip sw hot">Thermes + Lac Paso Nuevo ★★★★</span><span class="chip nat">Haute montagne</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="spots">
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Baños de Benasque · Sources thermales naturelles</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Sources d'eau chaude naturelles dans la montagne, à quelques km du village. Ambiance unique : tremper ses pieds (ou tout le corps !) dans l'eau chaude face à des sommets à 3000m. Partez très tôt le matin (avant 9h) ou en soirée — parking vite saturé en plein été.</div>
+        <div class="spot-meta"><span class="meta">💶 <strong>Gratuit</strong> (eau naturelle)</span><span class="meta">🌡️ Eau thermale ~25-30°C</span></div>
+      </div>
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Embalse de Paso Nuevo · Lac turquoise de barrage</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Lac de barrage aux eaux turquoises sur le Río Ésera, en contrebas de Benasque. Plage de galets, eau cristalline, peu fréquenté. Parfait pour une grande baignade en famille dans un cadre montagnard grandiose.</div>
+        <div class="spot-meta"><span class="meta">💶 <strong>Gratuit</strong></span><span class="meta">🌡️ Eau ~17-19°C</span></div>
+      </div>
+      <div class="spot">
+        <div class="spot-hd"><div class="spot-name">Village de Benasque + Ravitaillement</div></div>
+        <div class="spot-desc">Charmant village montagnard en pierre, capitale du Haut-Aragon, commerces bien fournis. Profitez-en pour faire les courses pour les 2 derniers jours en Espagne. Vue sur le Pic d'Aneto (3404m), toit des Pyrénées.</div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Fond de vallée de Benasque → route vers Alquézar</div><p>En soirée, commencez à descendre vers Alquézar (1h30 de route) pour gagner du temps le lendemain. Bivouac à mi-route possible dans la vallée de Graus.</p></div>
+  </div>
+</div>
+
+<!-- J14 -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge star"><span class="emo">🏰</span><span class="date">JEU 20/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Alquézar 🌊 + Pasarelas del Vero · Émeraude pur</div>
+      <div class="head-sub">Village perché + Passerelles canyon + Baignade eau émeraude</div>
+      <div class="chips"><span class="chip sw hot">Eau émeraude ★★★★★</span><span class="chip vil">Village exceptionnel</span><span class="chip nat">Canyon</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Benasque → A-138 → Barbastro → A-1229 → Alquézar</strong>~1h30. Partez avant 8h pour arriver à l'ouverture des Pasarelas.</div></div>
+    <div class="spots">
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Pasarelas del Río Vero · L'expérience ultime</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">Circuit de passerelles métalliques suspendues dans le canyon du Vero : 4 km, une heure de pur émerveillement. Les parois calcaires plongent dans une eau d'un vert émeraude surnaturel. Grotte sur le parcours. BAIGNADE ABSOLUMENT EXCEPTIONNELLE dans le Río Vero (eau émeraude ~16°C, très claire). Partez DÈS l'ouverture (8h) pour profiter de la fraîcheur et éviter la foule de la journée.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 2-3h + baignade</span><span class="meta">💶 ~5€/adulte · ~3€/enfant</span><span class="meta">🌡️ Eau ~16°C</span><span class="meta">👨‍👩‍👧 Dès 6 ans</span></div>
+      </div>
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">Village d'Alquézar · Perché sur le canyon</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">Village médiéval perché sur une falaise au-dessus du canyon du Vero. La Colegiata (église-forteresse XIe) domine tout. Vue plongeante à 360° sur les gorges. L'un des villages les plus photogéniques d'Espagne. Flânez dans les ruelles en pierre — une heure suffit.</div>
+        <div class="spot-meta"><span class="meta">💶 Village gratuit · Colegiata ~4€</span><span class="meta">🅿️ ~5€ obligatoire</span></div>
+      </div>
+    </div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac ★ · Ermitage Nuestra Señora de Dulcis</div><p>Spot Park4Night emblématique à 20 min d'Alquézar : ermitage perdu dans les oliviers, GRATUIT, calme absolu, ciel noir de désert. Coord : 42.15°N, 0.06°W. L'un des meilleurs de la Sierra de Guara !</p></div>
+  </div>
+</div>
+
+<!-- J15 DERNIER ESPAGNE + ANDORRE -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge swim"><span class="emo">🏊</span><span class="date">VEN 21/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Salto de Bierge 🌊 + Congost de Mont-rebei 🌊 → Andorre</div>
+      <div class="head-sub">Deux joyaux aquatiques · Le canyon des Gorges du Verdon espagnol · Duty-free</div>
+      <div class="chips"><span class="chip sw hot">2 baignades ★★★★★</span><span class="chip nat">Canyon 500m</span><span class="chip drive">~200 km total · Andorre soir</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="warn-box">📌 Journée de transition vers la France. Départ tôt (7h30) pour profiter de 2 baignades ET atteindre Andorre en soirée. Le lendemain : Andorre → Rambouillet (BBQ) !</div>
+    <div class="spots">
+      <div class="spot sw">
+        <div class="spot-hd"><div class="spot-name">🌊 Salto de Bierge · Gorge cristalline</div><div class="spot-stars">★★★★</div></div>
+        <div class="spot-desc">Zone de baignade aménagée dans les gorges de l'Alcanadre (Sierra de Guara). Eaux cristallines dans un cadre de falaises calcaires. Site à 15 min d'Alquézar. Accès réglementé (3€/pers). Rando bonus vers les vasques émeraude de la Fuente de Tamara.</div>
+        <div class="spot-meta"><span class="meta">⏱️ 1h30-2h</span><span class="meta">💶 3€/pers</span><span class="meta">🌡️ Eau ~18°C</span><span class="meta">📅 Réservation conseillée en août</span></div>
+      </div>
+      <div class="spot star">
+        <div class="spot-hd"><div class="spot-name">🌊 Congost de Mont-rebei · Les Gorges du Verdon espagnoles</div><div class="spot-stars">★★★★★</div></div>
+        <div class="spot-desc">La surprise finale et absolue du voyage ! Canyon frontière Aragon/Catalogne creusé par la Noguera Ribagorçana dans la Sierra de Montsec. Parois calcaires à 500m de hauteur, eau turquoise au fond. Chemin taillé dans la roche longeant les falaises, deux ponts suspendus vertigineux. Baignade dans les vasques turquoises. Parking de La Masieta (~6-8€ à réserver en ligne) — complet en été si vous n'avez pas réservé, arrivez à l'ouverture (8h30-9h).</div>
+        <div class="spot-meta"><span class="meta">📍 La Masieta, Sant Esteve de la Sarga (Lleida)</span><span class="meta">⏱️ 3-4h (version courte possible)</span><span class="meta">💶 Parking 6-8€ · Rando gratuite</span><span class="meta">🌡️ Eau ~18-20°C</span><span class="meta">🔖 Réservation parking OBLIGATOIRE en haute saison</span></div>
+      </div>
+    </div>
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Mont-rebei → N-260 → El Pont de Suert → CG-3 → Andorre</strong>~2h depuis Mont-rebei. El Pont de Suert : pause déjeuner/picnic (~14h). Andorre : arrivée ~16h. Shopping duty-free (alcool, parfums, électronique), faire le plein (carburant ~30% moins cher). Bivouac hors Andorre côté français (Ax-les-Thermes ou Ariège).</div></div>
+    <div class="biv-box"><div class="biv-title">🌙 Bivouac · Ax-les-Thermes ou Ariège (France) — hors Andorre</div><p>Le bivouac est très difficile en Andorre (tout est réglementé, zone très urbanisée). Repassez en France côté Ariège : spots Park4Night nombreux près de Luzenac ou Ax-les-Thermes. Coord ~42.72°N, 1.84°E.</p></div>
+  </div>
+</div>
+
+<!-- J16 RETOUR BBQ -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge rest"><span class="emo">🎉</span><span class="date">SAM 22/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Andorre → Foix → Toulouse → Rambouillet · BBQ ce soir !</div>
+      <div class="head-sub">Andorre tôt le matin · Traversée de France · BBQ chez les amis</div>
+      <div class="chips"><span class="chip drive">~960 km · 8h30-9h</span><span class="chip rest">BBQ soirée Rambouillet</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🗺️</div><div class="drive-info"><strong>Ax-les-Thermes → Andorre (Col de Puymorens ou Tunnel) → Foix → Pamiers → Toulouse → A62 → A20 → A71 → Orléans → N10 → Rambouillet</strong>Départ 7h, visite Andorre 1h (shop + Col de l'Envalira 2408m si météo ok), sortie France ~9h30. Arrivée Rambouillet ~17h30-18h ✓ pour le BBQ !</div></div>
+    <div class="spots">
+      <div class="spot">
+        <div class="spot-hd"><div class="spot-name">Andorre · Col de l'Envalira (2408m) + Duty-free</div><div class="spot-stars">★★★</div></div>
+        <div class="spot-desc">Le col de l'Envalira est le plus haut col routier des Pyrénées, avec une vue panoramique à couper le souffle. En été, pas de neige, belle balade en altitude. Andorre-la-Vieille : duty-free pour carburant (économie ~30%), alcool, parfums. Budget ~30-40 min de shopping.</div>
+      </div>
+    </div>
+    <div class="warn-box">⚠️ <strong>Péages retour</strong> : environ 35-40€ Toulouse → Rambouillet. Prévoyez aussi le carburant pour ~500 km de France post-Andorre.</div>
+  </div>
+</div>
+
+<!-- J17 RETOUR LILLE -->
+<div class="card">
+  <div class="card-head" onclick="toggle(this)">
+    <div class="badge transit"><span class="emo">🏠</span><span class="date">DIM 23/08</span></div>
+    <div class="head-info">
+      <div class="head-title">Rambouillet → Lille · Fin du road-trip</div>
+      <div class="head-sub">Retour à la maison</div>
+      <div class="chips"><span class="chip drive">~150 km · 1h30</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="drive-box"><div class="drive-ico">🏠</div><div class="drive-info"><strong>Rambouillet → A10 → Paris → A1 → Lille</strong>Départ tranquille après le petit-déjeuner. Arrivée à Lille en milieu de matinée. Vider le van, lancer les lessives, ressortir les photos… et commencer à planifier le prochain voyage !</div></div>
+  </div>
+</div>
+
+  </div><!-- end timeline -->
+</div><!-- end section -->
+
+<!-- SWIM INDEX -->
+<div style="background:var(--mist);padding:0">
+<div class="section">
+  <div class="sec-title">🌊 Index des Baignades · Par Ordre de Voyage</div>
+  <div class="sec-sub">9 spots confirmés · Du plus froid au plus chaud</div>
+  <div class="swim-index">
+    <h3>🏊 Classement des Spots Baignade</h3>
+    <div class="swim-list">
+      <div class="swim-item"><span class="si-date">10/08</span><span class="si-name">Playa de La Concha · San Sebastián</span><span class="si-temp">~22°C · Mer Atlantique</span><span class="si-stars">★★★★★</span></div>
+      <div class="swim-item"><span class="si-date">11/08</span><span class="si-name">Embalse de Ullibarri-Gamboa · Álava</span><span class="si-temp">~22°C · Lac</span><span class="si-stars">★★★★</span></div>
+      <div class="swim-item"><span class="si-date">13/08</span><span class="si-name">Foz de Lumbier · Río Irati · Navarre</span><span class="si-temp">~17°C · Rivière gorge</span><span class="si-stars">★★★★</span></div>
+      <div class="swim-item"><span class="si-date">14/08</span><span class="si-name">Selva de Oza · Río Aragón Subordán</span><span class="si-temp">~15°C · Rivière montagne</span><span class="si-stars">★★★★★</span></div>
+      <div class="swim-item"><span class="si-date">15/08</span><span class="si-name">Mallos de Riglos · Río Gállego</span><span class="si-temp">~18°C · Rivière</span><span class="si-stars">★★★★</span></div>
+      <div class="swim-item"><span class="si-date">17/08</span><span class="si-name">Bujaruelo · Río Ara Turquoise</span><span class="si-temp">~14°C · Rivière glaciaire</span><span class="si-stars">★★★★★</span></div>
+      <div class="swim-item"><span class="si-date">19/08</span><span class="si-name">Benasque · Thermes + Embalse Paso Nuevo</span><span class="si-temp">Thermes ~27°C · Lac ~18°C</span><span class="si-stars">★★★★</span></div>
+      <div class="swim-item"><span class="si-date">20/08</span><span class="si-name">Pasarelas del Vero · Alquézar · Eau Émeraude</span><span class="si-temp">~16°C · Canyon</span><span class="si-stars">★★★★★</span></div>
+      <div class="swim-item"><span class="si-date">21/08</span><span class="si-name">Salto de Bierge + Congost de Mont-rebei</span><span class="si-temp">~18-20°C · Gorges</span><span class="si-stars">★★★★★</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- BUDGET -->
+<div class="section">
+  <div class="sec-title">💶 Budget Estimatif · 4 Personnes</div>
+  <div class="sec-sub">Avec le passage par Andorre et les haltes amis</div>
+  <div class="budget-grid">
+    <div class="budget-item"><div class="budget-cat">⛽ Carburant</div><div class="budget-amt">~370€</div><div class="budget-note">~3200 km total. Master diesel ~10L/100. Plein Andorre (~30% moins cher), carburant espagnol ~1.45€/L</div></div>
+    <div class="budget-item or"><div class="budget-cat">🛣️ Péages</div><div class="budget-amt">~100€</div><div class="budget-note">France A/R (Lille↔Bordeaux/Rambouillet). Espagne : autoroutes Aragon gratuites. Andorre→Rambouillet ~40€</div></div>
+    <div class="budget-item bl"><div class="budget-cat">🛒 Alimentation</div><div class="budget-amt">~320€</div><div class="budget-note">Mercadona/DIA espagnols, très bon marché. Cuisiner dans le van. ~22€/jour famille. Économies sur 2 soirées chez amis.</div></div>
+    <div class="budget-item pu"><div class="budget-cat">🎟️ Entrées</div><div class="budget-amt">~120€</div><div class="budget-note">Navette Ordesa 24€, Pasarelas Vero ~16€, Salto Bierge ~12€, Mont-rebei parking ~24€, parkings divers ~44€</div></div>
+    <div class="budget-item"><div class="budget-cat">🌙 Nuitées</div><div class="budget-amt">~0€</div><div class="budget-note">100% bivouac gratuit hors 2 nuits chez amis. Prévoir ~30€ de secours (camping douches si besoin).</div></div>
+    <div class="budget-item or"><div class="budget-cat">🍕 Restos/Cafés</div><div class="budget-amt">~80€</div><div class="budget-note">1-2 menú del día en Espagne (~12€/pers). Pintxos à San Sebastián (~15€). Reste : pique-nique.</div></div>
+  </div>
+  <div class="budget-total">
+    <div><div class="bt-label">Total estimé · 4 personnes · 16 jours</div><div class="bt-amt">~990–1050€</div><div class="bt-note">Soit ~250€ par personne · ~66€/jour famille complète</div></div>
+    <div style="text-align:right"><div style="font-size:.82rem;color:#a8d5c2">dont Andorre duty-free</div><div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--sand)">économise ~40€ carburant</div></div>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div style="background:var(--mist);padding:0">
+<div class="section">
+  <div class="sec-title">💡 Conseils & Points Clés</div>
+  <div class="sec-sub">Tout ce qu'il faut savoir avant le départ</div>
+  <div class="tips-grid">
+    <div class="tip"><div class="tip-ico">🌑</div><div class="tip-title">Éclipse : commandez les lunettes MAINTENANT</div><div class="tip-text">Lunettes certifiées <strong>ISO 12312-2</strong> obligatoires pour toute la phase partielle. Seulement pendant les ~1min27s de totalité vous pouvez regarder sans. Commandez en ligne avant le départ — les stocks s'épuisent ! Prévoyez 6 paires (famille + amis Biarritz).</div></div>
+    <div class="tip"><div class="tip-ico">🌊</div><div class="tip-title">Chaleur en Aragon · Stratégie baignade</div><div class="tip-text">En Aragon en août, 35-42°C. Stratégie : randonnées et visites TÔT le matin (8h-12h), sieste-baignade au van en milieu de journée, reprise en soirée. Les rivières et gorges offrent des microclimats 8-10°C plus frais. Prévoyez toujours de l'eau (2L/pers/jour minimum).</div></div>
+    <div class="tip"><div class="tip-ico">📱</div><div class="tip-title">Apps indispensables</div><div class="tip-text"><strong>Park4Night</strong> : bible du bivouac. <strong>OsmAnd</strong> : cartes hors-ligne. <strong>Wikiloc</strong> : traces GPX randonnées. <strong>Réservation Mont-rebei</strong> : booking en ligne obligatoire haute saison (site Fundació Catalunya-La Pedrera). <strong>OrdesaBus.com</strong> : infos navette.</div></div>
+    <div class="tip"><div class="tip-ico">🏔️</div><div class="tip-title">Andorre : ce qu'on y fait</div><div class="tip-text">Andorre c'est 1-2h max : Col de l'Envalira (2408m, panorama), un bar chocolat chaud avec vue sur les montagnes, duty-free pour carburant (~30% moins cher) + alcool + parfums. Pas de TVA. Budget prévisionnel : plein de gasoil (~40-50€) + courses (~30-50€ en cadeaux/vivres).</div></div>
+    <div class="tip"><div class="tip-ico">🚗</div><div class="tip-title">Le Renault Master dans les Pyrénées</div><div class="tip-text">Le Master passe partout sur cet itinéraire. Points de vigilance : piste vers Selva de Oza (étroite, prudence), route Foz de Lumbier (normale), accès Mont-rebei depuis Viacamp côté aragonais (alternative moins encombrée). Vérifiez la hauteur pour les tunnels.</div></div>
+    <div class="tip"><div class="tip-ico">💧</div><div class="tip-title">Eau & Ravitaillement</div><div class="tip-text">Fontaines d'eau potable dans tous les villages aragonais. Faites le plein des réserves du van à Jaca, Ainsa, Benasque (Mercadona). Pour les baignades : sandales aquatiques recommandées pour les galets et les vasques. Filtrer l'eau de rivière si besoin (Sawyer).</div></div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <p>🚐 Bon voyage à vous quatre ! &nbsp;·&nbsp; <strong>Pyrénées Espagnoles · Été 2026</strong> &nbsp;·&nbsp; Respectez la nature, laissez les lieux comme vous les avez trouvés 🌿</p>
+  <p style="margin-top:7px">Navette Ordesa : <strong>ordesabus.com</strong> · Bivouac : <strong>park4night.com</strong> · Mont-rebei parking : <strong>fundaciocatalunya-lapedrera.com</strong> · Lunettes éclipse : <strong>ISO 12312-2</strong></p>
+</footer>
+
+<script>
+function toggle(h){const c=h.closest('.card');c.classList.toggle('open')}
+document.querySelectorAll('.card').forEach((c,i)=>{if(i>0)c.classList.remove('open')})
+</script>
+</body>
+</html>
